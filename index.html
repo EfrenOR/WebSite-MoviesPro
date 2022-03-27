@@ -100,10 +100,10 @@
 
 
             <div class="navigation-manual">
-              <label for="radio1" class="manual-btn"></label>
-              <label for="radio2" class="manual-btn"></label>
-              <label for="radio3" class="manual-btn"></label>
-              <label for="radio4" class="manual-btn"></label>
+              <label for="radio1" class="manual-btn btn1"></label>
+              <label for="radio2" class="manual-btn btn2"></label>
+              <label for="radio3" class="manual-btn btn3"></label>
+              <label for="radio4" class="manual-btn btn4"></label>
             </div>
           </div>
         </div>
@@ -219,5 +219,43 @@
       </div>
     </footer>
   </body>
+
+  <!-- I added a small script to control the imagen slider so with this the images can move itself -->
+  <script type="text/javascript">
+    let counter = 1;
+
+    /*This is to get the position of the imagen when the user click on some label
+    to continue with the moving of the imagens*/
+    let getPosition = document.querySelector('.btn1')
+    getPosition.addEventListener('click', ()=>{
+      counter = 1;
+    })
+
+    getPosition = document.querySelector('.btn2')
+    getPosition.addEventListener('click', ()=>{
+      counter = 2;
+    })
+
+    getPosition = document.querySelector('.btn3')
+    getPosition.addEventListener('click', ()=>{
+      counter = 3;
+    })
+
+    getPosition = document.querySelector('.btn4')
+    getPosition.addEventListener('click', ()=>{
+      counter = 4;
+    })
+
+    /*With this I can select each label with id = radio + number and set it a checked=true
+    to display each imagen*/
+    setInterval(function(){
+      document.getElementById('radio' + counter).checked = true;
+      counter++;
+      if(counter > 4){
+        counter = 1;
+      }
+    }, 4000);
+  </script>
+
 </html>
 <!-- DEVELOPED BY JAIR EFREN ORTEGA REYES -->
