@@ -31,31 +31,27 @@ const $sectionMoviesFlex = $sectionMovies.querySelector(".flex")
 
 //Create the cards for the movies/////
 
-//Create Elements
-const $cardsMovies = document.createElement("article"),
-      $figure = document.createElement("figure"),
-      $img = document.createElement("img"),
-      $titleMovie = document.createElement("h3");
+/*With forEach() I created each cardsMovies of my object moviesList*/
+moviesList.forEach((movie)=>{
 
-$cardsMovies.classList.add("box-movies-horror") //Set a class
+  //Create Elements
+  const $cardsMovies = document.createElement("article"),
+        $figure = document.createElement("figure"),
+        $img = document.createElement("img"),
+        $titleMovie = document.createElement("h3");
+        $cardsMovies.classList.add("box-movies-horror") //Set a class
 
-$img.setAttribute("src", `img/${moviesList[0].img}`)
-$figure.appendChild($img)
-$cardsMovies.appendChild($figure)
+  $img.setAttribute("src", `img/${movie.img}`)
+  $figure.appendChild($img)
+  $cardsMovies.appendChild($figure)
 
-$titleMovie.textContent = moviesList[0].title;
-$cardsMovies.appendChild($titleMovie)
+  $titleMovie.textContent = movie.title;
+  $cardsMovies.appendChild($titleMovie)
 
-//Append each $cardsMovies to the Parent Element
-$sectionMoviesFlex.appendChild($cardsMovies)
+  //Append each $cardsMovies to the Parent Element
+  $sectionMoviesFlex.appendChild($cardsMovies)
 
-
-
-
-
-
-
-
+})
 
 
 
