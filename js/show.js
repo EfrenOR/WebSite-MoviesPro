@@ -26,7 +26,7 @@ const moviesList = [
     category : "Horror",
     img : "Midsommar.jpg",
     site : "https://www.themoviedb.org/movie/530385-midsommar?language=es-es",
-    top : false
+    top : true
   },
   {
     title: "Toy Story 4",
@@ -40,7 +40,7 @@ const moviesList = [
     category : "Fantasy",
     img : "PiratesCaribbean.jpg",
     site : "https://www.themoviedb.org/movie/166426-pirates-of-the-caribbean-dead-men-tell-no-tales?language=es-es",
-    top : false
+    top : true
   },
   {
     title: "Alice in Wonderland",

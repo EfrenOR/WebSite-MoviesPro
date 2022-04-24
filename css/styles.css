@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html{
+  font-size: 12px;
+}
+
 /* To define colors variables */
 :root {
   --MainColor: rgb(207, 12, 12);
@@ -85,6 +89,7 @@ a{
 .title-section {
   color: white;
   margin: 30px 0 30px 0;
+  text-align: left;
 }
 
 /* STYLES TO THE SECTION GENRES */
@@ -98,21 +103,24 @@ a{
 .title-box-genres{
   color: white;
   font-weight: lighter;
+  font-size: 1.2rem;
 }
 
 .box-genres figure img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 15px 0;
 }
 
 .section-genres .box-genres:not(:nth-child(1n+5)){
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-
+.section-genres h2{
+  text-align: center;
+}
 
 /* //////////////////////////////////////////////////////////////////////// */
 
@@ -121,7 +129,7 @@ a{
 .section-carousel {
   display: flex;
   justify-content: center;
-  margin: 50px 0 60px 0;
+  margin: 30px 0 60px 0;
 }
 
 /* This will be the container of the imagen slider, it will have the imagens
@@ -178,6 +186,7 @@ inside it*/
 }
 
 .btn-Top{
+  z-index: 999;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -196,8 +205,8 @@ inside it*/
 
 /* To add a slow transition to the imagens when we push it on label */
 [class*="imagen-"]{
-  transition: 1s;
   width: 100vw;
+  transition: 1s;
 }
 
 #radio1:checked ~ .imagen-01{
@@ -238,8 +247,16 @@ main{
 
 
 /* BEGINNING DEVELOPMENT OF THE MOVIES TOP*/
+
+.flex{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
 [class*="section-movies-"] h2{
   border: 1px solid var(--MainColor);
+  background-color: var(--MainColor);
   line-height: 0px;
   width: 100%;
 }
@@ -247,14 +264,20 @@ main{
 [class*="section-movies-"] span{
   background: var(--BackgroundColor);
   padding: 0 15px 0 15px;
+  margin-left: 25px;
+  font-weight: 400;
 }
 
 .section-page img:not(.section-carousel img){
-  width: 50%;
+  width: 100%;
+  height: auto;
 }
 
 [class*="box-movies-"]{
-  margin-bottom: 50px;
+  width: 20%;
+  min-width: 100px;
+  height: auto;
+  margin: 0px 10px 20px 10px;
 }
 
 [class*="box-movies-"] h3{
@@ -299,6 +322,11 @@ footer .Row2 h6{
 
 /*I used media query to make the website resposive with desktop*/
 @media only screen and (min-width:820px){
+
+html{
+  font-size: 16px;
+}
+
 .Header .Main-Header{
     flex-direction:row;
     justify-content: space-between;
@@ -317,8 +345,8 @@ footer .Row2 h6{
   }
 
   .box-genres figure img{
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 25px 0;
@@ -348,24 +376,25 @@ footer .Row2 h6{
   .section-page .flex{
     display: flex;
     flex-wrap:wrap;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   .section-page img:not(.section-carousel img){
     width: 100%;
-    height: 350px;
+    height: auto;
     margin-bottom: 10px;
   }
 
   [class*="box-movies-"] h3{
     color: white;
     font-weight: lighter;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   [class*="box-movies-"]{
-    width: 20%;
-    margin: 20px 20px 50px;
+    width: 15%;
+    height: auto;
+    margin: 20px 10px 20px 10px;
     transition: 0.3s;
   }
 
@@ -376,7 +405,6 @@ footer .Row2 h6{
   [class*="box-movies-"]:hover{
     transform:scale(1.1, 1.1);
     cursor: pointer;
-
   }
 
 }
