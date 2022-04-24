@@ -5,7 +5,9 @@ const moviesList = [
     category : "Horror",
     img : "Don't Breathe 2.jpg",
     site : "https://www.themoviedb.org/movie/482373-don-t-breathe-2?language=es-es",
-    top : false
+    top : false,
+    raking : 7.8,
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
   },
   {
     title: "Us",
@@ -78,7 +80,6 @@ const moviesList = [
     top : true
   }
 ]
-
 
 /*With for and forEach() I created each cardsMovies of my object moviesList*/
 //Edit: I used fragments and template element to optimize the website
@@ -172,6 +173,7 @@ const up=()=>{
 
 $btnUP.addEventListener("click", up);
 console.log($btnUP)
+
 
 // Jair Efren Ortega Reyes
 //
