@@ -408,14 +408,7 @@ html{
   }
 
 
-/*
-  [class*="box-movies-"]:hover{
-    transform:scale(1.1, 1.1);
-    cursor: pointer;
-  } */
-
-  /* NEW STYLES - TESTING */
-
+  /* Styles to div element which display the information about each movie*/
   .box-movies-info{
     display: block;
   }
@@ -437,12 +430,16 @@ html{
     width: 100%;
     height: 90%;
     color: white;
-    padding: 20px 5px;
+    padding: 40px 5px;
   }
 
   .box-movies-info p{
     margin-bottom: 10px;
     font-size: 0.9rem;
+  }
+
+  #Sinopsis{
+    margin-bottom: 30px;
   }
 
   .box-movies-info strong{

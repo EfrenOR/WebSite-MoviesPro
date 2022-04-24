@@ -1,4 +1,5 @@
 
+
 //Get all Movies
 const $movieBox = document.querySelectorAll('.box-movies-poster');
 
