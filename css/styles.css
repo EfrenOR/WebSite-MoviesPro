@@ -177,6 +177,23 @@ inside it*/
   background:var(--RedOpacity);
 }
 
+.btn-Top{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  line-height: 60px;
+  border-radius: 100%;
+  background-color: var(--MainColor);
+  font-size: 1.4rem;
+  color:var(--BackgroundColor)
+}
+
+.btn-Top:hover{
+  cursor: pointer;
+  transform:scale(0.9, 0.9);
+}
+
 /* To add a slow transition to the imagens when we push it on label */
 [class*="imagen-"]{
   transition: 1s;
@@ -258,9 +275,13 @@ footer{
 }
 
 .social-medias{
-  border: 1px solid black;
   height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.social-medias i{
+  font-size: 2rem;
+  margin: 10px;
 }
 
 footer a{

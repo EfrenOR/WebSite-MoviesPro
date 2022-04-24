@@ -1,5 +1,3 @@
-
-
 //Object with movies
 const moviesList = [
   {
@@ -86,10 +84,10 @@ const moviesList = [
 //Edit: I used fragments and template element to optimize the website
 
 //get the template
-$templateMovies = document.getElementById("cardsMovies").content
+const $templateMovies = document.getElementById("cardsMovies").content;
 //Create the fragments
-$fragmentMovies = document.createDocumentFragment();
-$fragmentMoviesTop = document.createDocumentFragment();
+const $fragmentMovies = document.createDocumentFragment();
+const $fragmentMoviesTop = document.createDocumentFragment();
 
 let claseCategory;/*To store the category of each movie and use it to call
   the section element with its class and append the Movies there
@@ -107,7 +105,7 @@ moviesList.forEach((movie) => {//I stored each category in the categories variab
 /*I converted the categories variable above to Array, i did that because
   I needed to access the values with their specific position
 */
-let categoriesArray = Array.from(categories)
+let categoriesArray = Array.from(categories);
 
 //Create each movie which is an <article> element in the HTML
 for (let i = 0; i <categoriesArray.length; i++) {
@@ -119,9 +117,9 @@ for (let i = 0; i <categoriesArray.length; i++) {
       claseTop = true;//This is my flag variable
 
       //I set each Attribute of my elements inside $templateMovies
-      $templateMovies.querySelector("a").setAttribute("href", movie.site)
-      $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`)
-      $templateMovies.querySelector("img").setAttribute("alt", movie.title)
+      $templateMovies.querySelector("a").setAttribute("href", movie.site);
+      $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`);
+      $templateMovies.querySelector("img").setAttribute("alt", movie.title);
       $templateMovies.querySelector("h3").textContent = movie.title;
 
       //I cloned the template to be able using it in other occasions
@@ -134,9 +132,9 @@ for (let i = 0; i <categoriesArray.length; i++) {
     //This is to put all movies depending on their category
     if(movie.category == categoriesArray[position]){
       claseCategory = movie.category//This stores the class depending on the category
-      $templateMovies.querySelector("a").setAttribute("href", movie.site)
-      $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`)
-      $templateMovies.querySelector("img").setAttribute("alt", movie.title)
+      $templateMovies.querySelector("a").setAttribute("href", movie.site);
+      $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`);
+      $templateMovies.querySelector("img").setAttribute("alt", movie.title);
       $templateMovies.querySelector("h3").textContent = movie.title;
       let $cloneTemplate = document.importNode($templateMovies, true)
 
@@ -147,21 +145,33 @@ for (let i = 0; i <categoriesArray.length; i++) {
   /*I get the section depending on the category for this I need to use the created
   claseCategory variable above
   */
-  $sectionMovies = document.getElementsByClassName(`section-movies-${claseCategory}`)[0]
+  const $sectionMovies = document.getElementsByClassName(`section-movies-${claseCategory}`)[0]
 
   /*This conditional is to detect when a movies is "TOP" I need to use the flag
     variable -> claseTop*/
   if(claseTop == true){
-    $sectionMoviesTop = document.getElementsByClassName(`section-movies-Top`)[0]
+    const $sectionMoviesTop = document.getElementsByClassName(`section-movies-Top`)[0]
 
     //I add the $fragmentMoviesTop inside $sectionMoviesTop
-    $sectionMoviesTop.querySelector(".flex").append($fragmentMoviesTop)
+    $sectionMoviesTop.querySelector(".flex").append($fragmentMoviesTop);
   }
 
   //I add the $fragmentMovies inside $sectionMovies depending on the category
-  $sectionMovies.querySelector(".flex").append($fragmentMovies)
+  $sectionMovies.querySelector(".flex").append($fragmentMovies);
 
 }
+
+let $btnUP = document.getElementById("btnUp");
+
+const up=()=>{
+  window.scroll({
+    top:0,
+    behavior : 'smooth'
+  })
+}
+
+$btnUP.addEventListener("click", up);
+console.log($btnUP)
 
 // Jair Efren Ortega Reyes
 //
