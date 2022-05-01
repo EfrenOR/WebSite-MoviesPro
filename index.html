@@ -28,16 +28,11 @@
         </nav>
       </div>
 
-      <!-- <section class="hero">
-        <figure class="box-imagen-hero">
-          <img class="imagen-hero" src="img/Header_Img.png" alt="Main-Imagen">
-        </figure>
-      </section> -->
-
     </header>
-    <main>
-      <div class="btn-Top" id="btnUp"> <strong>UP</strong> </div>
 
+    <div class="btn-Top" id="btnUp"> <i class="fa-solid fa-up-long"></i> </div>
+
+    <main>
       <section class="section page section-genres">
         <h2 class="title-section">Genres</h2>
         <div class="flex-genres">
@@ -149,20 +144,25 @@
     <template id="cardsMovies">
       <article class="box-movies-container">
         <div class="box-movies-poster">
+
           <figure>
-            <a><img></a>
+            <a class="box-movies-imagen"><img></a>
           </figure>
-          <h3></h3>
 
           <div class="box-movies-info">
             <p><strong> Sinopsis: </strong></p>
             <p id="Sinopsis"></p>
 
-            <p><strong>Raking:</strong></p>
-            <p id="Ranking"></p>
-
+            <p><strong>Ranking:</strong></p>
+            <figure>
+              <img id="icon" alt="Ranking">
+              <figcaption id="Ranking"></figcaption>
+            </figure>
+            <a id="link-trailer">Watch Trailer</a>
           </div>
         </div>
+        <a><h3></h3></a>
+
       </article>
     </template>
 
@@ -184,46 +184,8 @@
     </footer>
 
     <script src="js/load.js" type="text/javascript"></script>
-    <script src="./js/animation.js" type="text/javascript"></script>
+    <script src='./js/index.js' type='module'></script>
   </body>
-
-  <!-- I added a small script to control the imagen slider so with this the images can move itself -->
-  <script type="text/javascript">
-    let counter = 1;
-
-    /*This is to get the position of the imagen when the user click on some label
-    to continue with the moving of the imagens*/
-    let getPosition = document.querySelector('.btn1')
-    getPosition.addEventListener('click', ()=>{
-      counter = 1;
-    })
-
-    getPosition = document.querySelector('.btn2')
-    getPosition.addEventListener('click', ()=>{
-      counter = 2;
-    })
-
-    getPosition = document.querySelector('.btn3')
-    getPosition.addEventListener('click', ()=>{
-      counter = 3;
-    })
-
-    getPosition = document.querySelector('.btn4')
-    getPosition.addEventListener('click', ()=>{
-      counter = 4;
-    })
-
-    /*With this I can select each label with id = radio + number and set it a checked=true
-    to display each imagen*/
-    setInterval(function(){
-      document.getElementById('radio' + counter).checked = true;
-      counter++;
-      if(counter > 4){
-        counter = 1;
-      }
-    }, 4000);
-  </script>
-
 
 </html>
 

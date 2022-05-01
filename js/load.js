@@ -7,7 +7,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/482373-don-t-breathe-2?language=es-es",
     top : false,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Us",
@@ -16,7 +17,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/458723-us?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "A Quite Place Part II",
@@ -25,7 +27,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/520763-a-quiet-place-2?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Midsommar",
@@ -34,7 +37,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/530385-midsommar?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Toy Story 4",
@@ -42,8 +46,9 @@ const moviesList = [
     img: "ToyStory4.jpg",
     site : "https://www.themoviedb.org/movie/301528-toy-story-4?language=es-es",
     top : false,
-    raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    raking : 5,
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Pirates Caribbean",
@@ -52,7 +57,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/166426-pirates-of-the-caribbean-dead-men-tell-no-tales?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Alice in Wonderland",
@@ -61,7 +67,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/12155-alice-in-wonderland?language=es-es",
     top : false,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title: "Abominable",
@@ -70,7 +77,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/431580-abominable?language=es-es",
     top : false,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title:"Moonfall",
@@ -79,7 +87,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/406759-moonfall?language=es-es",
     top : false,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title : "Batman",
@@ -88,7 +97,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/414906-the-batman?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   },
   {
     title : "BlackLight",
@@ -97,7 +107,8 @@ const moviesList = [
     site : "https://www.themoviedb.org/movie/823625-blacklight?language=es-es",
     top : true,
     raking : 7.8,
-    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing"
+    sinopsis : "Lorem ipsum dolor sit amet, consectetur adipisicing, consectetur adipisicing",
+    trailer : "https://www.youtube.com"
   }
 ]
 
@@ -128,7 +139,7 @@ moviesList.forEach((movie) => {//I stored each category in the categories variab
   I needed to access the values with their specific position
 */
 let categoriesArray = Array.from(categories);
-
+let rakingIcon = '';
 //Create each movie which is an <article> element in the HTML
 for (let i = 0; i <categoriesArray.length; i++) {
   let position = i;
@@ -136,16 +147,19 @@ for (let i = 0; i <categoriesArray.length; i++) {
 
     //This conditional is for put the "Top Movies"
     if(movie.category == categoriesArray[position] && movie.top == true){
+      rakingIcon = (movie.raking<6) ? 'spilled_popcorn.svg' : 'popcorn.svg';
       claseTop = true;//This is my flag variable
 
       //I set each Attribute of my elements inside $templateMovies
-      $templateMovies.querySelector("a").setAttribute("href", movie.site);
+      $templateMovies.querySelector(".box-movies-container").lastElementChild.setAttribute("href", movie.site);
+      $templateMovies.querySelector(".box-movies-imagen").setAttribute("href", movie.site);
       $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`);
       $templateMovies.querySelector("img").setAttribute("alt", movie.title);
       $templateMovies.querySelector("h3").textContent = movie.title;
       $templateMovies.getElementById('Sinopsis').textContent = movie.sinopsis;
       $templateMovies.getElementById('Ranking').textContent = movie.raking
-
+      $templateMovies.getElementById('icon').setAttribute("src", `img/${rakingIcon}`)
+      $templateMovies.getElementById('link-trailer').setAttribute("href", movie.trailer)
       //I cloned the template to be able using it in other occasions
       let $cloneTemplate = document.importNode($templateMovies, true)
 
@@ -155,13 +169,18 @@ for (let i = 0; i <categoriesArray.length; i++) {
 
     //This is to put all movies depending on their category
     if(movie.category == categoriesArray[position]){
+      rakingIcon = (movie.raking<7) ? 'spilled_popcorn.svg' : 'popcorn.svg';
       claseCategory = movie.category//This stores the class depending on the category
-      $templateMovies.querySelector("a").setAttribute("href", movie.site);
+      $templateMovies.querySelector(".box-movies-container").lastElementChild.setAttribute("href", movie.site);
+      $templateMovies.querySelector(".box-movies-imagen").setAttribute("href", movie.site);
       $templateMovies.querySelector("img").setAttribute("src", `img/${movie.img}`);
       $templateMovies.querySelector("img").setAttribute("alt", movie.title);
       $templateMovies.querySelector("h3").textContent = movie.title;
       $templateMovies.getElementById('Sinopsis').textContent = movie.sinopsis;
       $templateMovies.getElementById('Ranking').textContent = movie.raking
+      $templateMovies.getElementById('icon').setAttribute("src", `img/${rakingIcon}`)
+      $templateMovies.getElementById('link-trailer').setAttribute("href", movie.trailer)
+
       let $cloneTemplate = document.importNode($templateMovies, true)
 
       $fragmentMovies.appendChild($cloneTemplate)
@@ -186,19 +205,6 @@ for (let i = 0; i <categoriesArray.length; i++) {
   $sectionMovies.querySelector(".flex").append($fragmentMovies);
 
 }
-
-let $btnUP = document.getElementById("btnUp");
-
-const up=()=>{
-  window.scroll({
-    top:0,
-    behavior : 'smooth'
-  })
-}
-
-$btnUP.addEventListener("click", up);
-console.log($btnUP)
-
 
 // Jair Efren Ortega Reyes
 //
